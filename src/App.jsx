@@ -10,6 +10,30 @@ import createProductPrice from "./helpers/createProductPrice.js";
 import createScreenSizesString from "./helpers/createScreenSizesString.js";
 
 function App() {
+    function sortBestSellers() {
+        inventory.sort((a, b) => {
+            return a.sold - b.sold;
+        });
+
+        console.log(inventory);
+    }
+
+    function sortCheapest() {
+        inventory.sort((a, b) => {
+            return a.price - b.price;
+        });
+
+        console.log(inventory);
+    }
+
+    function sortSport() {
+        inventory.sort((a, b) => {
+            return a.refreshRate - b.refreshRate;
+        });
+
+        console.log(inventory);
+    }
+
     return (
         <main className="page-container">
             <h1>Tech it easy dashboard</h1>
@@ -58,13 +82,13 @@ function App() {
             </section>
             <section>
                 <h2>Alle tvs</h2>
-                <button type="button">
+                <button type="button" onClick={sortBestSellers}>
                     Meest verkocht eerst
                 </button>
-                <button type="button">
+                <button type="button" onClick={sortCheapest}>
                     Goedkoopste eerst
                 </button>
-                <button type="button">
+                <button type="button" onClick={sortSport}>
                     Meest geschikt voor sport eerst
                 </button>
                 {inventory.map((tv) => {
