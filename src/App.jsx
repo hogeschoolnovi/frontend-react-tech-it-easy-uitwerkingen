@@ -8,8 +8,11 @@ import calculateProductsToSell from "./helpers/calculateProductsToSell.js";
 import createProductName from "./helpers/createProductName.js";
 import createProductPrice from "./helpers/createProductPrice.js";
 import createScreenSizesString from "./helpers/createScreenSizesString.js";
+import showOefeningOneInConsole from './constants/opdracht-1-oefeningen.js';
 
 function App() {
+    showOefeningOneInConsole();
+
     function sortBestSellers() {
         inventory.sort((a, b) => {
             return a.sold - b.sold;
