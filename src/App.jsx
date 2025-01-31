@@ -50,8 +50,20 @@ function App() {
                     </div>
                 </article>
             </section>
+            <section>
+                <h2>Alle tvs</h2>
+                <button type="button" onClick={() => console.log("Meest verkocht eerst")}>
+                    Meest verkocht eerst
+                </button>
+                <button type="button" onClick={() => console.log("Goedkoopste eerst")}>
+                    Goedkoopste eerst
+                </button>
+                <button type="button" onClick={() => console.log("Meest geschikt voor sport eerst")}>
+                    Meest geschikt voor sport eerst
+                </button>
+            </section>
         </main>
-    )
+)
 }
 
 export default App
