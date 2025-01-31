@@ -15,10 +15,10 @@ function App() {
 
     function sortBestSellers() {
         inventory.sort((a, b) => {
-            return a.sold - b.sold;
+            return b.sold - a.sold;
         });
 
-        console.log(inventory);
+        console.log('Best verkocht eerst', inventory);
     }
 
     function sortCheapest() {
@@ -26,15 +26,27 @@ function App() {
             return a.price - b.price;
         });
 
-        console.log(inventory);
+        console.log('Goedkoopste eerst', inventory);
     }
 
     function sortSport() {
         inventory.sort((a, b) => {
-            return a.refreshRate - b.refreshRate;
+            return b.refreshRate - a.refreshRate;
         });
 
-        console.log(inventory);
+        console.log('Hoogste ververssnelheid eerst', inventory);
+    }
+
+    {/*BONUS OPDRACHT 1*/}
+    function sortSize() {
+        inventory.sort((a, b) => {
+            const largestSizeA = a.availableSizes[a.availableSizes.length - 1];
+            const largestSizeB = b.availableSizes[b.availableSizes.length - 1];
+
+            return largestSizeB - largestSizeA;
+        });
+
+        console.log('Grootste tvs eerst', inventory);
     }
 
     return (
@@ -96,10 +108,14 @@ function App() {
                 <button type="button" onClick={sortSport}>
                     Meest geschikt voor sport eerst
                 </button>
+                <button type="button" onClick={sortSize}>
+                    Grootste tvs eerst
+                </button>
                 {/*OPDRACHT 2B, 2C en 2D*/}
                 {inventory.map((tv) => {
                     return (
                         <article className="product" key={tv.type}>
+                            {tv.originalStock - tv.sold === 0 && <p className="product-sold-out">Uitverkocht</p>}
                             <span className="product-image">
                                 <img src={tv.sourceImg} alt="Afbeelding van het product"/>
                             </span>
@@ -124,7 +140,8 @@ function App() {
                                 </ul>
                             </div>
                         </article>
-                    )})}
+                    )
+                })}
             </section>
         </main>
     )

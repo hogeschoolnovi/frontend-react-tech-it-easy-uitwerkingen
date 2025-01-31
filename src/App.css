@@ -50,6 +50,21 @@
   flex-direction: row;
   gap: 34px;
   align-items: center;
+  position: relative;
+}
+
+.product-sold-out {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  z-index: 2;
+  background-color: red;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: 4px;
+  padding: 10px 16px;
 }
 
 .product-best-seller {
