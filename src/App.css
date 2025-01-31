@@ -69,3 +69,15 @@
 .product-price {
   font-size: 24px;
 }
+
+.option-list {
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.option-list img {
+  margin-right: 4px;
+}
