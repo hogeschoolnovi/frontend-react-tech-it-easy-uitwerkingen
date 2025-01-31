@@ -56,6 +56,7 @@ function App() {
                         <h2>{calculateProductsToSell(inventory)}</h2>
                     </article>
                 </div>
+                {/*OPDRACHT 2A*/}
                 <h3>Beschikbare merken</h3>
                 <ul>
                     {inventory.map((tv) => {
@@ -85,6 +86,7 @@ function App() {
             </section>
             <section>
                 <h2>Alle tvs</h2>
+                {/*OPDRACHT 3*/}
                 <button type="button" onClick={sortBestSellers}>
                     Meest verkocht eerst
                 </button>
@@ -94,6 +96,7 @@ function App() {
                 <button type="button" onClick={sortSport}>
                     Meest geschikt voor sport eerst
                 </button>
+                {/*OPDRACHT 2B, 2C en 2D*/}
                 {inventory.map((tv) => {
                     return (
                         <article className="product" key={tv.type}>
@@ -107,9 +110,15 @@ function App() {
                                 <ul className="option-list">
                                     {tv.options.map((option) => {
                                         if (option.applicable === true) {
-                                            return <li key={`${tv.type}-${option.name}`}><img src={check} alt="Icoon: aanwezig" className="icon"/>{option.name}</li>
+                                            return <li key={`${tv.type}-${option.name}`}>
+                                                <img src={check} alt="Icoon: aanwezig" className="icon"/>
+                                                {option.name}
+                                            </li>
                                         } else {
-                                            return <li key={`${tv.type}-${option.name}`}><img src={minus} alt="Icoon: niet aanwezig" className="icon"/>{option.name}</li>
+                                            return <li key={`${tv.type}-${option.name}`}>
+                                                <img src={minus} alt="Icoon: niet aanwezig" className="icon"/>
+                                                {option.name}
+                                            </li>
                                         }
                                     })}
                                 </ul>
